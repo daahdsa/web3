@@ -34,11 +34,15 @@
 <label>Любимые языки программирования</label>
 <select name="languages[]" multiple size="6" required>
   <?php
+//   $pdo = new PDO("mysql:host=localhost;dbname=u54358;charset=utf8","u82283","");
+//   foreach ($pdo->query("SELECT * FROM programming_languages") as $row) {
+//       echo "<option value='{$row['id']}'>{$row['name']}</option>";
+//   }
 try {
-    $pdo = new PDO(
-        "mysql:host=localhost;dbname=dbname;charset=utf8",
-        "login",
-        "pass"
+     $pdo = new PDO(
+        "mysql:host=localhost;dbname=u82283;charset=utf8",
+        "u82283",
+        "7013916"
     );
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
