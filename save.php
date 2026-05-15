@@ -15,6 +15,22 @@ $bio = trim($_POST['bio'] ?? '');
 $languages = $_POST['languages'] ?? [];
 $contract = isset($_POST['contract']) ? 1 : 0;
 
+if (!preg_match("/^[\p{L}\s]{2,150}$/u", $name)) {
+    error("Некорректное ФИО");
+}
+
+if (!preg_match("/^\+?[0-9\-\s]{7,30}$/", $phone)) {
+    error("Некорректный телефон");
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    error("Некорректный email");
+}
+
+if (!$birth) {
+    error("Не указана дата рождения");
+}
+
 $allowed_gender = ['male','female','other'];
 if (!in_array($gender, $allowed_gender)) {
     error("Некорректный пол");
